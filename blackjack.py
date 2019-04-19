@@ -85,3 +85,54 @@ class Dealer(Player):
             self.pick_another_card()
             self.sum()
         return Dealer.sumd
+
+def result(arg1, arg2):
+    if(arg2 > 21):
+        print 'Player1 Busted!'
+        return
+    elif(arg1 > 21):
+        print 'Dealer Busted!' 
+        return
+    elif(arg1 > arg2):
+        print 'Dealer wins!'
+        return
+    elif(arg2 > arg1):
+        print 'Player1 wins!'
+        return
+    else:
+        print 'Tie between Player1 and Dealer.'
+
+print 'Player1 vs Dealer'
+print 'Distributing Cards:'
+player1 = Player()
+p1 = player1.pick_card()
+player1.track_card(p1)
+print 'Player 1: '
+player1.print_list()
+
+dealer1 = Dealer()
+d1 = dealer1.pick_card()
+dealer1.track_card(d1)
+print 'Dealer:'
+dealer1.print_list()
+
+
+p2 = player1.pick_card()
+player1.track_card(p2)
+print 'Player 1: '
+player1.print_list()
+
+d2 = dealer1.pick_card()
+dealer1.track_card(d2)
+
+player1.pick_another_card()
+
+print 'Dealer:'
+dealer1.print_list()
+dealer1.sum()
+sum_dealer = dealer1.check_sum()
+sum_player = player1.sum()
+
+print 'Sum of Player:',sum_player
+print 'Sum of Dealer:',sum_dealer
+result(sum_dealer, sum_player)
